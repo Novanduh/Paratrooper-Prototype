@@ -25,6 +25,7 @@ public class ClimbPyramid : MonoBehaviour
             }
             default: {
                 AssemblePyramidHelper(fourthParatrooperRoute, paratrooper);
+                GameManager.Instance.GameOver();
                 break;
             }
         }

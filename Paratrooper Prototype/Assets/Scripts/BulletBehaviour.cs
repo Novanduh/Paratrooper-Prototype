@@ -10,9 +10,11 @@ public class BulletBehaviour : MonoBehaviour
     }
     void Update()
     {
+        if(!GameManager.Instance.isGameOver){
         if((this.transform.position.x>8.0f)||(this.transform.position.x<-8.0f)||(this.transform.position.y>5.0f))
             Destroy(gameObject);
         this.transform.position = new Vector3 ((this.transform.position.x - (0.05f*Mathf.Sin(bulletAngle))), (this.transform.position.y + (0.05f*Mathf.Cos(bulletAngle))), this.transform.position.z) ;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)

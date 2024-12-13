@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public GameObject turret, helicopterTopSpawn, helicopterBottomSpawn, helicopterPrefab;
+    public GameObject turret, helicopterTopSpawn, helicopterBottomSpawn, helicopterPrefab, gameOverText;
     private int score;
     public TMP_Text scorePoints;
+    public bool isGameOver=false;
     
 
     private void Awake() 
@@ -26,9 +27,11 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        MoveTurret();
-        SpawnHelicopter();
-        TrooperManager.Instance.SortTroop();
+        if(!isGameOver){
+            MoveTurret();
+            SpawnHelicopter();
+            TrooperManager.Instance.SortTroop();
+        }
     }
 
     private void MoveTurret(){
@@ -70,6 +73,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver(){
-        SceneManager.LoadScene ("Instructions");
+        isGameOver=true;
+        //Destroy(turret);
+        gameOverText.SetActive(true);
+        Time.timeScale=0;
     }
 }

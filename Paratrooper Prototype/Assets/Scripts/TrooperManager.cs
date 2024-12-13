@@ -32,7 +32,6 @@ public class TrooperManager : MonoBehaviour
 
     public void RemoveParatrooperInstance(){
         --numberOfTroopers;
-        Debug.Log(numberOfTroopers + "," + numberOfGroundedTroopers);
     }
 
     public void AddGroundedTrooper(string sideOfLanding, GameObject trooper){
@@ -50,21 +49,37 @@ public class TrooperManager : MonoBehaviour
     }
 
     public void SortTroop(){
-    //if(numberOfGroundedTroopers==numberOfTroopers){
+        //if(numberOfGroundedTroopers==numberOfTroopers){
         if (listOfTroopersRight.Count>=4){
-            SortTroopHelper(listOfTroopersRight);
+            //SortTroopHelper(listOfTroopersRight);
             MoveTroop("right");
         }
         else if(listOfTroopersLeft.Count>=4){
-            SortTroopHelper(listOfTroopersLeft);
+            //SortTroopHelper(listOfTroopersLeft);
             MoveTroop("left");
-        }//}
+        }
+        //}
     }
 
-    private void SortTroopHelper(List<GameObject> troopList){
-        
-    }
-
+    /*private void SortTroopHelper(List<GameObject> troopList){
+        for(int i=0; i<(troopList.Count-1); i++){
+            for (int j=0; j<(troopList.Count - i -1); j++){
+                if(troopList[j].transform.position.x>troopList[j+1].transform.position.x){
+                    GameObject temp = troopList[j];
+                    troopList[j]=troopList[j+1];
+                    troopList[j+1]=temp;
+                }
+                else if(troopList[j].transform.position.x==troopList[j+1].transform.position.x){
+                    if(troopList[j].transform.position.y>troopList[j+1].transform.position.y){
+                        GameObject temp = troopList[j];
+                        troopList[j]=troopList[j+1];
+                        troopList[j+1]=temp;
+                    }
+                }
+            }
+        }
+    }*/
+    
     private void MoveTroop(string pyramidSide){
         if(pyramidSide.Equals("right")){
             for(int i=0; i<4; i++)

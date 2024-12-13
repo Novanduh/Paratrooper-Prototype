@@ -21,6 +21,7 @@ public class HelicopterBehaviour : MonoBehaviour
 
     void Update()
     {
+        if(!GameManager.Instance.isGameOver){
         if(flyingDirection.Equals("right")){
             this.transform.position = new Vector3 ((this.transform.position.x + 0.025f), this.transform.position.y, this.transform.position.z) ;
             if(this.transform.position.x>10.0f){
@@ -35,6 +36,7 @@ public class HelicopterBehaviour : MonoBehaviour
         }
         if(!TrooperManager.Instance.FourTroopersLanded()){
             SpawnParatrooper();
+        }
         }
     }
 

@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     void Update()
     {
+      if(!GameManager.Instance.isGameOver){
         if(Input.GetKeyDown(KeyCode.UpArrow)){
            GameManager.Instance.SetTurretDirection("stationary");
            GameManager.Instance.SpawnBullet();
@@ -16,5 +17,6 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.RightArrow)){
            GameManager.Instance.SetTurretDirection("clockwise");
         }
+      }
     }
 }
