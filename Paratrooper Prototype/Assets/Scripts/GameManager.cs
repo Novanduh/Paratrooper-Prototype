@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //TURRET CONTROL//
     private void MoveTurret(){
         turret.GetComponent<TurretController>().MoveTurret();
     }
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void SpawnBullet(){
         turret.GetComponent<TurretController>().SpawnBullet();
     }
+    //////////////////
 
     public void SpawnHelicopter(){
         if((Random.Range(1, 100)%97==0)){

@@ -26,6 +26,7 @@ public class TrooperManager : MonoBehaviour
         numberOfGroundedTroopers=0;
     }
 
+    //PARATROOPER COUNTING FUNCTIONS//
     public void AddParatrooperInstance(){
         ++numberOfTroopers;
     }
@@ -47,7 +48,9 @@ public class TrooperManager : MonoBehaviour
     public bool FourTroopersLanded(){
         return ((listOfTroopersRight.Count>=4)||(listOfTroopersLeft.Count>=4));
     }
-
+    /////////////////
+    
+    //CLIMBING FUNCTIONS//
     public void SortTroop(){
         //if(numberOfGroundedTroopers==numberOfTroopers){
         if (listOfTroopersRight.Count>=4){
@@ -90,6 +93,5 @@ public class TrooperManager : MonoBehaviour
                 leftPyramid.GetComponent<ClimbPyramid>().AssemblePyramid(listOfTroopersLeft[i], i);
         }
     }
-
-
+    /////////////////
 }
